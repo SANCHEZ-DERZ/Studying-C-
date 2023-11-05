@@ -1,1 +1,2 @@
 add_executable(HelloWorld HelloWorld.cpp)
+add_executable(EnumerateTest EnumerateTest.cpp)
