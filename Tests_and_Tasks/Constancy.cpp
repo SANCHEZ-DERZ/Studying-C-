@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 #include <vector>
 int main() {
 	const int c1 = 42; // Эта константа известна в Compile time
@@ -49,3 +49,4 @@ int main() {
 
 	const int* const cptrc = &x;
 }
+*/
