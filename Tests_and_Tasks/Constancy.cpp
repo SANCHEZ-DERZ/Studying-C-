@@ -18,20 +18,20 @@ int main() {
 	const int& cref = y; // Константная ссылка
 	++y; // OK
 	++ref; // OK
-	++cref; // Error
+	//++cref; // Error
 
 	int* ptr = &y;
 	const int* cptr = &y;
 	++*ptr;
-	++*cptr; //Error
+	//++*cptr; //Error
 
 
 	const int cx = 14;
 
-	int& ref1 = cx;// Error
+	//int& ref1 = cx;// Error
 	const int& cref1 = cx; // OK
 
-	int* ptr1 = &cx; //Error
+	//int* ptr1 = &cx; //Error
 	const int* cptr = &cx; //OK
 
 
@@ -39,13 +39,13 @@ int main() {
 	const int cz = 12;
 
 	int* ptr2 = &z;// Обычный указатель на z
-	ptr2 = &cz;
+	//ptr2 = &cz;
 
 	const int* cptr1 = &z;
 	cptr1 = &cz;// для указателя на константу можно менять адрес, но нельзя менять само значение (см. стр.48)
 
 	int* const ptrc = &z;
-	ptrc = nullptr;
+	//ptrc = nullptr;
 
 	const int* const cptrc = &x;
 }
