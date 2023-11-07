@@ -1,4 +1,4 @@
-/*#include <iostream>
+#include <iostream>
 #include <vector>
 int main() {
 	const int c1 = 42; // Эта константа известна в Compile time
@@ -32,7 +32,7 @@ int main() {
 	const int& cref1 = cx; // OK
 
 	//int* ptr1 = &cx; //Error
-	const int* cptr = &cx; //OK
+	//const int* cptr = &cx; //OK
 
 
 	int z = 17;
@@ -49,4 +49,3 @@ int main() {
 
 	const int* const cptrc = &x;
 }
-*/
