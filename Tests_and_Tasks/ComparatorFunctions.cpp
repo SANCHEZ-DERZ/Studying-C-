@@ -44,4 +44,5 @@ int main() {
 	for (const auto& [year, month, day] : dates) {
 		std::cout << year << "." << month << "." << day << "\n";
 	}
+
 }
