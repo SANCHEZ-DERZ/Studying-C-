@@ -6,7 +6,7 @@
 std::pair<size_t, size_t> MatrixArgMax(const std::vector<std::vector<int>>& matrix) {
 	size_t max_i = 0;
 	size_t max_j = 0;
-	int max = 0;
+	int max = -100000000;
 	for (size_t i = 0; i < matrix.size(); i++) {
 		for (size_t j = 0; j < matrix[i].size(); j++) {
 			if (matrix[i][j] > max) {

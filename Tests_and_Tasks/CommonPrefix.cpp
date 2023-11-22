@@ -5,20 +5,37 @@
 
 std::string CommonPrefix(const std::vector<std::string>& words) {
 	std::string prefix = "";
-	char letter = words[0][0];
-	int flag = 0;
+	size_t flag = 0;
+	char letter{};
+	char common_l{};
+	size_t min_lenght = 0;
 	if (words.size() == 0) {
 		return "";
 	}
+	else if (words.size() == 1) {
+		return words[0];
+	}
 	else {
-		for (int i = 0; i < words.size(); i++) {
-			for (int j = 0; j < words[i].size(); j++) {
-				if (letter == words[i][j]) {
-					flag += 1;
-				}
-				if (flag == words.size())
-				letter = words[i][j];
+		min_lenght = words[0].size();
+		for (size_t i = 0; i < words.size(); i++) {
+			if (min_lenght < words[i].size()) {
+				min_lenght = words[i].size();
 			}
+		}
+		for (size_t z = 0; z < min_lenght; z++) {
+			common_l = words[0][z];
+			for (size_t i = 0; i < words.size(); i++) {
+				for (size_t j = 0; j < words[i].size(); j++) {
+					if (common_l == words[i][j] && j == z) {
+						flag += 1;
+						letter = words[i][j];
+					}
+				}
+			}
+			if (flag == words.size()) {
+				prefix += letter;
+			}
+			flag = 0;
 		}
 		return prefix;
 	}
@@ -26,7 +43,9 @@ std::string CommonPrefix(const std::vector<std::string>& words) {
 
 
 int main() {
-	std::vector<std::string> words(3);
+	int n = 0;
+	std::cin >> n;
+	std::vector<std::string> words(n);
 	for (int i = 0; i < words.size(); i++) {
 		std::cin >> words[i];
 	}
