@@ -5,23 +5,35 @@
 #include <algorithm>
 
 
-struct Points {
-	int x = 0;
-	int y = 0;
-};
-
-
-bool operator < (const Points& lhs, const Points& rhs) {
-	if (lhs.x * lhs) {
-		return left < right;
+std::vector<std::pair<int, int>> SortingPoints (std::vector<std::pair<int, int>>& points) {
+	std::vector<std::pair<int, int>> result = {};
+	std::vector<int> hypoth = {};
+	for (size_t i = 0; i < points.size(); i++) {
+		hypoth.push_back(points[i].first * points[i].first + points[i].second * points[i].second);
 	}
+	std::sort(hypoth.begin(), hypoth.end());
+	for (size_t i = 0; i < hypoth.size(); i++) {
+		for (size_t j = 0; j < points.size(); j++) {
+			if (hypoth[i] == points[j].first * points[j].first + points[j].second * points[j].second) {
+				result.push_back(points[j]);
+				points[j].first = 1000;
+				points[j].second = 1000;
+				break;
+			}
+		}
+	}
+	return result;
 }
 
 
 int main() {
-	std::vector<std::pair<int, int>> test = { {2, 3}, {1, 2} };
-	std::sort(test.begin(), test.end(), operator<);
+	int n = 0;
+	std::cin >> n;
+	std::vector<std::pair<int, int>> test(n);
 	for (size_t i = 0; i < test.size(); i++) {
-		std::cout << test[i].first << " " << test[i].second << "\n";
+		std::cin >> test[i].first >> test[i].second;
+	}
+	for (const auto& elem : SortingPoints(test)) {
+		std::cout << elem.first << " " << elem.second << "\n";
 	}
 }
